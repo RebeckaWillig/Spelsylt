@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnfdv5buugn7x"]
+
+[ext_resource type="Script" uid="uid://cnasi1w5dn54x" path="res://Scripts/67_Rizzard.gd" id="1_c3kur"]
+[ext_resource type="PackedScene" uid="uid://ds2i6x1rjyxbi" path="res://Scenes/main_menu.tscn" id="2_jyn26"]
+[ext_resource type="PackedScene" uid="uid://d0c75cj2hajel" path="res://Scenes/player.tscn" id="3_ctpxx"]
+[ext_resource type="PackedScene" uid="uid://d01yg0lqd51vr" path="res://Scenes/bench.tscn" id="4_j5na4"]
+[ext_resource type="PackedScene" uid="uid://dufd4qvhdh14w" path="res://Scenes/pause_menu.tscn" id="5_irttw"]
+[ext_resource type="Texture2D" uid="uid://do384tdgw2syb" path="res://Assets/Sprites/background.png" id="6_c3kur"]
+[ext_resource type="PackedScene" uid="uid://lofb48hdus6c" path="res://Scenes/flower.tscn" id="7_jyn26"]
+
+[sub_resource type="Animation" id="Animation_fd4e3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../bench/Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f1ek2"]
+resource_name = "zoom"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../bench/Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(2, 2), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqcod"]
+_data = {
+&"RESET": SubResource("Animation_fd4e3"),
+&"zoom": SubResource("Animation_f1ek2")
+}
+
+[node name="67_Rizzard" type="Node"]
+script = ExtResource("1_c3kur")
+main_menu_scene = ExtResource("2_jyn26")
+
+[node name="player" parent="." instance=ExtResource("3_ctpxx")]
+z_index = 2
+position = Vector2(-1133, 84)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(0, -13)
+
+[node name="bench" parent="." instance=ExtResource("4_j5na4")]
+position = Vector2(-1378, 165)
+
+[node name="Camera2D" type="Camera2D" parent="bench"]
+enabled = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bench/Camera2D"]
+root_node = NodePath("../../../player/Camera2D")
+libraries = {
+&"": SubResource("AnimationLibrary_qqcod")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_irttw")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="CanvasLayer2" instance=ExtResource("2_jyn26")]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Background"]
+z_index = -100
+position = Vector2(-1263, 148.5)
+texture = ExtResource("6_c3kur")
+
+[node name="flower" parent="." instance=ExtResource("7_jyn26")]
+position = Vector2(-980, 157)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

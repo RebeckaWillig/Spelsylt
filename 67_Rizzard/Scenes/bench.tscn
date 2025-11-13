@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://d01yg0lqd51vr"]
+
+[ext_resource type="Script" uid="uid://cjre2mqg52m67" path="res://Scripts/bench.gd" id="1_e6kot"]
+[ext_resource type="Texture2D" uid="uid://hielnt2d1afr" path="res://Assets/Sprites/Bench Plastic 2.png" id="2_sht6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6kot"]
+atlas = ExtResource("2_sht6a")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6kot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6kot")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgxpg"]
+size = Vector2(76, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6kot"]
+size = Vector2(64, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sht6a"]
+size = Vector2(68, 43)
+
+[node name="bench" type="Area2D" groups=["interactable"]]
+script = ExtResource("1_e6kot")
+
+[node name="Bench" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e6kot")
+animation = &"blue"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 21.5)
+shape = SubResource("RectangleShape2D_rgxpg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_e6kot")
+
+[node name="behind" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="behind"]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_sht6a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="behind" to="." method="_on_behind_body_entered"]
+[connection signal="body_exited" from="behind" to="." method="_on_behind_body_exited"]
