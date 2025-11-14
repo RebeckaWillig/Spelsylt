@@ -5,15 +5,15 @@ func _ready() -> void:
 	get_tree().paused = false
 	animation_player.play("RESET")
 
-func resume():
+func resume() -> void:
 	get_tree().paused = false
 	animation_player.play_backwards("blur")
 
-func pause():
+func pause() -> void:
 	get_tree().paused = true
 	animation_player.play("blur")
 
-func testEsc():
+func testEsc() -> void:
 	if get_tree().get_root().find_child("MainMenu", true, false) != null:
 		return
 	if Input.is_action_just_pressed("escape") and !get_tree().paused:

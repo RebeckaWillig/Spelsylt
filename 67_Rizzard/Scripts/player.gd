@@ -1,16 +1,20 @@
 extends CharacterBody2D
 const DEBUG_MODE = false
 const SPEED = 120
+const START_POSITION = Vector2(330, 850)
 var timeout = false
 var animation_finished = true
 signal interaction
 
 func _ready() -> void:
+	position = START_POSITION
 	$body.play("default")
 	for i in get_tree().get_nodes_in_group("interactable"):
 		pass
 
 func _process(_delta: float) -> void:
+	if not Gamestate.input_enabled:
+		return
 	var interacted = Input.is_action_just_pressed("interact")
 	if interacted:
 		interaction.emit()
@@ -20,6 +24,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func get_movement() -> void:
+	if not Gamestate.input_enabled:
+		return
 	var direction_x = Input.get_axis("move_left","move_right")
 	var direction_y = Input.get_axis("move_up","move_down")
 	var local_direction = Vector2(direction_x,direction_y).normalized()

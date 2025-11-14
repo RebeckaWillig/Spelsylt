@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnfdv5buugn7x"]
+[gd_scene load_steps=16 format=3 uid="uid://bnfdv5buugn7x"]
 
 [ext_resource type="Script" uid="uid://cnasi1w5dn54x" path="res://Scripts/67_Rizzard.gd" id="1_c3kur"]
 [ext_resource type="PackedScene" uid="uid://ds2i6x1rjyxbi" path="res://Scenes/main_menu.tscn" id="2_jyn26"]
 [ext_resource type="PackedScene" uid="uid://d0c75cj2hajel" path="res://Scenes/player.tscn" id="3_ctpxx"]
 [ext_resource type="PackedScene" uid="uid://d01yg0lqd51vr" path="res://Scenes/bench.tscn" id="4_j5na4"]
 [ext_resource type="PackedScene" uid="uid://dufd4qvhdh14w" path="res://Scenes/pause_menu.tscn" id="5_irttw"]
-[ext_resource type="Texture2D" uid="uid://do384tdgw2syb" path="res://Assets/Sprites/background.png" id="6_c3kur"]
+[ext_resource type="Texture2D" uid="uid://dhq2r18ckppy6" path="res://Assets/Sprites/background2.png" id="7_ctpxx"]
 [ext_resource type="PackedScene" uid="uid://lofb48hdus6c" path="res://Scenes/flower.tscn" id="7_jyn26"]
+[ext_resource type="PackedScene" uid="uid://cuvpnhqkkf1ms" path="res://Scenes/skibidi.tscn" id="8_ctpxx"]
 
 [sub_resource type="Animation" id="Animation_fd4e3"]
 length = 0.001
@@ -45,19 +46,31 @@ _data = {
 &"zoom": SubResource("Animation_f1ek2")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctpxx"]
+size = Vector2(162, 259.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5na4"]
+size = Vector2(162, 259.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyn26"]
+size = Vector2(2019, 259.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irttw"]
+size = Vector2(2023, 259.5)
+
 [node name="67_Rizzard" type="Node"]
 script = ExtResource("1_c3kur")
 main_menu_scene = ExtResource("2_jyn26")
 
 [node name="player" parent="." instance=ExtResource("3_ctpxx")]
-z_index = 2
-position = Vector2(-1133, 84)
+z_index = -1
+position = Vector2(330, 850)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, -13)
 
 [node name="bench" parent="." instance=ExtResource("4_j5na4")]
-position = Vector2(-1378, 165)
+position = Vector2(809, 927)
 
 [node name="Camera2D" type="Camera2D" parent="bench"]
 enabled = false
@@ -80,13 +93,41 @@ one_shot = true
 [node name="MainMenu" parent="CanvasLayer2" instance=ExtResource("2_jyn26")]
 
 [node name="Background" type="Node2D" parent="."]
+z_index = -100
 
 [node name="Background" type="Sprite2D" parent="Background"]
 z_index = -100
-position = Vector2(-1263, 148.5)
-texture = ExtResource("6_c3kur")
+position = Vector2(1132, 847)
+texture = ExtResource("7_ctpxx")
+
+[node name="hitboxleft" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/hitboxleft"]
+position = Vector2(229, 847)
+shape = SubResource("RectangleShape2D_ctpxx")
+
+[node name="hitboxright" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/hitboxright"]
+position = Vector2(2039, 866)
+shape = SubResource("RectangleShape2D_j5na4")
+
+[node name="hitboxtop" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/hitboxtop"]
+position = Vector2(1135.5, 732)
+shape = SubResource("RectangleShape2D_jyn26")
+
+[node name="hitboxbottom" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/hitboxbottom"]
+position = Vector2(1132, 1060)
+shape = SubResource("RectangleShape2D_irttw")
 
 [node name="flower" parent="." instance=ExtResource("7_jyn26")]
-position = Vector2(-980, 157)
+position = Vector2(1018, 903)
+
+[node name="skibidi" parent="." instance=ExtResource("8_ctpxx")]
+position = Vector2(526, 913)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

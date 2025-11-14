@@ -474,7 +474,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88g82"]
-size = Vector2(44, 49)
+size = Vector2(72, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbmji"]
 size = Vector2(38, 10)
@@ -496,7 +496,7 @@ sprite_frames = SubResource("SpriteFrames_s3cv5")
 animation = &"day2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, 24.5)
+position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_88g82")
 
 [node name="hitbox" type="StaticBody2D" parent="."]
