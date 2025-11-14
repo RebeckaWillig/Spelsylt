@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cuvpnhqkkf1ms"]
+[gd_scene load_steps=23 format=3 uid="uid://cuvpnhqkkf1ms"]
 
 [ext_resource type="Script" uid="uid://lkse7uih36qf" path="res://Scripts/skibidi.gd" id="1_wel2w"]
 [ext_resource type="Texture2D" uid="uid://40h8kly5mj3d" path="res://Assets/Sprites/skibidi.png" id="2_yl4v2"]
@@ -169,9 +169,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wel2w"]
 size = Vector2(66, 65)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl4v2"]
-size = Vector2(34, 31)
-
 [node name="skibidi" type="Area2D"]
 script = ExtResource("1_wel2w")
 
@@ -182,12 +179,6 @@ animation = &"skibidi"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_wel2w")
-
-[node name="hitbox" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, 17.5)
-shape = SubResource("RectangleShape2D_yl4v2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

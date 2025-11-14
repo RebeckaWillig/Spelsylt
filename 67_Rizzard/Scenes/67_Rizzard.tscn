@@ -1,12 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bnfdv5buugn7x"]
+[gd_scene load_steps=15 format=3 uid="uid://bnfdv5buugn7x"]
 
 [ext_resource type="Script" uid="uid://cnasi1w5dn54x" path="res://Scripts/67_Rizzard.gd" id="1_c3kur"]
 [ext_resource type="PackedScene" uid="uid://ds2i6x1rjyxbi" path="res://Scenes/main_menu.tscn" id="2_jyn26"]
 [ext_resource type="PackedScene" uid="uid://d0c75cj2hajel" path="res://Scenes/player.tscn" id="3_ctpxx"]
 [ext_resource type="PackedScene" uid="uid://d01yg0lqd51vr" path="res://Scenes/bench.tscn" id="4_j5na4"]
 [ext_resource type="PackedScene" uid="uid://dufd4qvhdh14w" path="res://Scenes/pause_menu.tscn" id="5_irttw"]
-[ext_resource type="Texture2D" uid="uid://dhq2r18ckppy6" path="res://Assets/Sprites/background2.png" id="7_ctpxx"]
-[ext_resource type="PackedScene" uid="uid://lofb48hdus6c" path="res://Scenes/flower.tscn" id="7_jyn26"]
+[ext_resource type="Texture2D" uid="uid://dhq2r18ckppy6" path="res://Assets/Sprites/mainmenu.png" id="7_ctpxx"]
 [ext_resource type="PackedScene" uid="uid://cuvpnhqkkf1ms" path="res://Scenes/skibidi.tscn" id="8_ctpxx"]
 
 [sub_resource type="Animation" id="Animation_fd4e3"]
@@ -124,10 +123,8 @@ shape = SubResource("RectangleShape2D_jyn26")
 position = Vector2(1132, 1060)
 shape = SubResource("RectangleShape2D_irttw")
 
-[node name="flower" parent="." instance=ExtResource("7_jyn26")]
-position = Vector2(1018, 903)
-
 [node name="skibidi" parent="." instance=ExtResource("8_ctpxx")]
-position = Vector2(526, 913)
+position = Vector2(526, 925)
 
+[connection signal="fairy_in_bench" from="bench" to="." method="_on_bench_fairy_in_bench"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

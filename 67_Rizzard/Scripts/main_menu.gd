@@ -1,7 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	$Panel/Rizzard.play("default")
+	pass
 
 func _on_start_pressed() -> void:
 	Gamestate.input_enabled = true

@@ -1,6 +1,9 @@
 extends AudioStreamPlayer
 const background_music = preload("res://Assets/Audio/GildedCage.wav")
 
+func _ready():
+	process_mode = AudioStreamPlayer.PROCESS_MODE_ALWAYS
+
 func play_music(music: AudioStream):
 	if stream == music:
 		return

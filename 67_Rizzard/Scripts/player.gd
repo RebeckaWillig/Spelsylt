@@ -20,6 +20,8 @@ func _process(_delta: float) -> void:
 		interaction.emit()
 
 func _physics_process(_delta: float) -> void:
+	if not Gamestate.input_enabled:
+		return
 	get_movement()
 	move_and_slide()
 

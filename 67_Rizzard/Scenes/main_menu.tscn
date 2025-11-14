@@ -1,33 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://ds2i6x1rjyxbi"]
+[gd_scene load_steps=7 format=3 uid="uid://ds2i6x1rjyxbi"]
 
 [ext_resource type="Script" uid="uid://3n5pba6edtxh" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
-[ext_resource type="Texture2D" uid="uid://dhq2r18ckppy6" path="res://Assets/Sprites/background2.png" id="2_ce3w2"]
-[ext_resource type="Texture2D" uid="uid://c2f1fabalbqjx" path="res://Assets/Sprites/Rizzard.png" id="3_ce3w2"]
 [ext_resource type="FontFile" uid="uid://djy8vr5snm1km" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="3_n45e2"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_erv1k"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n45e2"]
-atlas = ExtResource("3_ce3w2")
-region = Rect2(0, 0, 40, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_opfnp"]
-atlas = ExtResource("3_ce3w2")
-region = Rect2(40, 0, 40, 80)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cp0ys"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n45e2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_opfnp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce3w2"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -95,24 +69,6 @@ grow_vertical = 2
 script = ExtResource("1_1ehe0")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_erv1k")
-metadata/_edit_use_anchors_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
-position = Vector2(62, 120)
-texture = ExtResource("2_ce3w2")
-
-[node name="Rizzard" type="AnimatedSprite2D" parent="Panel"]
-position = Vector2(43, 115)
-sprite_frames = SubResource("SpriteFrames_cp0ys")
-
 [node name="Title" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -137,9 +93,9 @@ horizontal_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
-anchor_top = 0.4
+anchor_top = 0.5
 anchor_right = 0.7
-anchor_bottom = 0.6
+anchor_bottom = 0.7
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 9

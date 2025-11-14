@@ -34,4 +34,3 @@ func _on_new_day() -> void:
 	# play reverse fade to black
 	#$fade_to_black.visible = false
 	pass
-	
