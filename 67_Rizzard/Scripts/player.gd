@@ -1,16 +1,19 @@
 extends CharacterBody2D
-const DEBUG_MODE = false
 const SPEED = 120
-const START_POSITION = Vector2(330, 850)
+const START_POSITION = Vector2(280, 780)
 var timeout = false
 var animation_finished = true
 signal interaction
 
+const DEBUG_MODE = true
+const DEBUG_START_POSITION = Vector2(1760, 780)
+
 func _ready() -> void:
-	position = START_POSITION
+	if DEBUG_MODE:
+		position = DEBUG_START_POSITION
+	else:
+		position = START_POSITION
 	$body.play("default")
-	for i in get_tree().get_nodes_in_group("interactable"):
-		pass
 
 func _process(_delta: float) -> void:
 	if not Gamestate.input_enabled:

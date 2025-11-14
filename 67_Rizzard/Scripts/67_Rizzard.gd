@@ -34,3 +34,6 @@ func _on_new_day() -> void:
 	# play reverse fade to black
 	#$fade_to_black.visible = false
 	pass
+
+func _on_ending() -> void:
+	get_tree().change_scene_to_file("res://Scenes/ending.tscn")

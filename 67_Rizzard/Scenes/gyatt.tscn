@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0wno0jrg11ov"]
+
+[ext_resource type="Texture2D" uid="uid://bajmceu5dyiri" path="res://Assets/Sprites/gyatt.png" id="1_l3o7f"]
+[ext_resource type="Script" uid="uid://bmawqttgtln46" path="res://Scripts/gyatt.gd" id="1_ntg6e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntg6e"]
+atlas = ExtResource("1_l3o7f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1b4s"]
+atlas = ExtResource("1_l3o7f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgiib"]
+atlas = ExtResource("1_l3o7f")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eljh"]
+atlas = ExtResource("1_l3o7f")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb877"]
+atlas = ExtResource("1_l3o7f")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1b4s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntg6e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1b4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgiib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eljh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb877")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1b4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgiib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eljh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb877")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1b4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgiib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eljh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb877")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1b4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgiib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eljh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb877")
+}],
+"loop": false,
+"name": &"wiggle",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgiib"]
+size = Vector2(90, 80)
+
+[node name="gyatt" type="Area2D"]
+script = ExtResource("1_ntg6e")
+
+[node name="gyatt" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y1b4s")
+animation = &"wiggle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mgiib")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="animation_finished" from="gyatt" to="." method="_on_animation_finished"]

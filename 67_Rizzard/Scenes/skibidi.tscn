@@ -182,4 +182,4 @@ shape = SubResource("RectangleShape2D_wel2w")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="animation_finished" from="toilet" to="." method="_on_toilet_animation_finished"]
+[connection signal="animation_finished" from="toilet" to="." method="_on_animation_finished"]

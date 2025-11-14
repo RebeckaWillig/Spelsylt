@@ -21,6 +21,6 @@ func _on_body_exited(body: Node2D) -> void:
 		print("Player has left " + self.name)
 		in_player = false
 
-func _on_toilet_animation_finished() -> void:
+func _on_animation_finished() -> void:
 	Gamestate.input_enabled = true
 	$toilet.play("default")

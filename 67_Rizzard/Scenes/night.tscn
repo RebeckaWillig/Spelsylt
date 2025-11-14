@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b84wyrq2lfsn"]
+[gd_scene load_steps=7 format=3 uid="uid://b84wyrq2lfsn"]
 
 [ext_resource type="Script" uid="uid://dbmfpjdvjk6yl" path="res://Scripts/night.gd" id="1_2uhvn"]
-[ext_resource type="AudioStream" uid="uid://83pppiia42md" path="res://Assets/Audio/LightSwitch.wav" id="2_ndvps"]
 
 [sub_resource type="Animation" id="Animation_cfpff"]
 length = 0.001
@@ -92,9 +91,5 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-
-[node name="LightSwitch" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_ndvps")
-bus = &"LightSwitch"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
