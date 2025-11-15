@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca1sjiialy757"
-path="res://.godot/imported/skibiditoilet.png-899639e7bc32ab2af5a0689578753b4c.ctex"
+uid="uid://c644wubv364x2"
+path="res://.godot/imported/67_Rizzard.apple-touch-icon.png-2847a2c7848507292c941ad60aa4c0bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/skibiditoilet.png"
-dest_files=["res://.godot/imported/skibiditoilet.png-899639e7bc32ab2af5a0689578753b4c.ctex"]
+source_file="res://Game/Web/67_Rizzard.apple-touch-icon.png"
+dest_files=["res://.godot/imported/67_Rizzard.apple-touch-icon.png-2847a2c7848507292c941ad60aa4c0bd.ctex"]
 
 [params]
 

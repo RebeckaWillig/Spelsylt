@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5tdk0acmlwme"
-path="res://.godot/imported/death animation and bed.png-af569e4a349dc0dd7124929f61c74cca.ctex"
+uid="uid://b64ufydfiyw53"
+path="res://.godot/imported/67_Rizzard.png-a2a0b0371938171398d4f5fa3f03c028.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/death animation and bed.png"
-dest_files=["res://.godot/imported/death animation and bed.png-af569e4a349dc0dd7124929f61c74cca.ctex"]
+source_file="res://Game/Web/67_Rizzard.png"
+dest_files=["res://.godot/imported/67_Rizzard.png-a2a0b0371938171398d4f5fa3f03c028.ctex"]
 
 [params]
 

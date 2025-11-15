@@ -11,6 +11,7 @@ func _on_interaction() -> void:
 		print("Player interacts with " + self.name)
 		Gamestate.input_enabled = false
 		$gyatt.play("wiggle")
+		Music.fade_to_silence()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
@@ -24,6 +25,4 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_animation_finished() -> void:
 	ending.emit()
-	#Gamestate.input_enabled = true
-	#$gyatt.play("default")
 	pass

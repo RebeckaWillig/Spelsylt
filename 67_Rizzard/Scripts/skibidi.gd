@@ -8,8 +8,10 @@ func _ready() -> void:
 func _on_interaction() -> void:
 	if in_player:
 		print("Player interacts with " + self.name)
+		Music.volume_db = -12
 		Gamestate.input_enabled = false
 		$toilet.play("skibidi")
+		$skibidi.play()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
@@ -22,5 +24,6 @@ func _on_body_exited(body: Node2D) -> void:
 		in_player = false
 
 func _on_animation_finished() -> void:
+	Music.volume_db = 0
 	Gamestate.input_enabled = true
 	$toilet.play("default")

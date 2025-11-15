@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cuvpnhqkkf1ms"]
+[gd_scene load_steps=24 format=3 uid="uid://cuvpnhqkkf1ms"]
 
 [ext_resource type="Script" uid="uid://lkse7uih36qf" path="res://Scripts/skibidi.gd" id="1_wel2w"]
 [ext_resource type="Texture2D" uid="uid://40h8kly5mj3d" path="res://Assets/Sprites/skibidi.png" id="2_yl4v2"]
+[ext_resource type="AudioStream" uid="uid://dkgc8pdjd4ufm" path="res://Assets/Audio/skibidi.wav" id="3_yl4v2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wel2w"]
 atlas = ExtResource("2_yl4v2")
@@ -86,79 +87,79 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 67.0,
 "texture": SubResource("AtlasTexture_yl4v2")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_nfvu6")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_f8xgj")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_7keql")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_q4mhw")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_1wtak")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_06pqm")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_dpq2n")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_p1js6")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_pgfgr")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_e3w1m")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_4nk14")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_o3id2")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_squ31")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_bdyf1")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_lshtk")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_8o5wf")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_pgfgr")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_e3w1m")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_4nk14")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_o3id2")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_squ31")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_bdyf1")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_lshtk")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_8o5wf")
 }],
 "loop": false,
@@ -179,6 +180,9 @@ animation = &"skibidi"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_wel2w")
+
+[node name="skibidi" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yl4v2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

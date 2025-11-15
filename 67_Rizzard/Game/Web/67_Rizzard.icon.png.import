@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hielnt2d1afr"
-path="res://.godot/imported/Bench Plastic 2.png-751efe1d22f5dbbaba2cd84646b4cdf7.ctex"
+uid="uid://eaoqbl4ud6ta"
+path="res://.godot/imported/67_Rizzard.icon.png-886d65cb5b94ff814d87d39542956eb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Bench Plastic 2.png"
-dest_files=["res://.godot/imported/Bench Plastic 2.png-751efe1d22f5dbbaba2cd84646b4cdf7.ctex"]
+source_file="res://Game/Web/67_Rizzard.icon.png"
+dest_files=["res://.godot/imported/67_Rizzard.icon.png-886d65cb5b94ff814d87d39542956eb4.ctex"]
 
 [params]
 

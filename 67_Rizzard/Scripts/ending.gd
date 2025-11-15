@@ -5,6 +5,7 @@ func _ready() -> void:
 	$Text2.visible = false
 	$gyatt.play("default")
 	$Rizzard.play("ending")
+	$awooga.play()
 
 func _on_animation_finished() -> void:
 	$Text.visible = true

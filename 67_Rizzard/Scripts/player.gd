@@ -5,7 +5,7 @@ var timeout = false
 var animation_finished = true
 signal interaction
 
-const DEBUG_MODE = true
+const DEBUG_MODE = false
 const DEBUG_START_POSITION = Vector2(1760, 780)
 
 func _ready() -> void:
