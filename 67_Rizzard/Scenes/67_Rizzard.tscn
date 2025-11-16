@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnfdv5buugn7x"]
+[gd_scene load_steps=15 format=3 uid="uid://bnfdv5buugn7x"]
 
 [ext_resource type="Script" uid="uid://cnasi1w5dn54x" path="res://Scripts/67_Rizzard.gd" id="1_c3kur"]
 [ext_resource type="PackedScene" uid="uid://ds2i6x1rjyxbi" path="res://Scenes/main_menu.tscn" id="2_jyn26"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dhq2r18ckppy6" path="res://Assets/Sprites/mainmenu.png" id="7_ctpxx"]
 [ext_resource type="PackedScene" uid="uid://cuvpnhqkkf1ms" path="res://Scenes/skibidi.tscn" id="8_ctpxx"]
 [ext_resource type="PackedScene" uid="uid://b0wno0jrg11ov" path="res://Scenes/gyatt.tscn" id="8_j5na4"]
+[ext_resource type="PackedScene" uid="uid://b5sb8hrbdlwwd" path="res://Scenes/italian.tscn" id="9_irttw"]
 [ext_resource type="AudioStream" uid="uid://64mtsthqv7bx" path="res://Assets/Audio/piltangenterna.wav" id="9_j5na4"]
+[ext_resource type="PackedScene" uid="uid://b4265s74u4ddd" path="res://Scenes/subway.tscn" id="10_irttw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctpxx"]
 size = Vector2(162, 259.5)
@@ -36,7 +38,7 @@ position = Vector2(-852, -16)
 shape = SubResource("RectangleShape2D_ctpxx")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/hitboxes"]
-position = Vector2(958, 3)
+position = Vector2(714, 3)
 shape = SubResource("RectangleShape2D_j5na4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/hitboxes"]
@@ -63,8 +65,11 @@ texture = ExtResource("7_ctpxx")
 [node name="skibidi" parent="." instance=ExtResource("8_ctpxx")]
 position = Vector2(824, 862)
 
+[node name="italian" parent="." instance=ExtResource("9_irttw")]
+position = Vector2(1215, 855)
+
 [node name="gyatt" parent="." instance=ExtResource("8_j5na4")]
-position = Vector2(1916, 823)
+position = Vector2(1672, 823)
 
 [node name="player" parent="." instance=ExtResource("3_ctpxx")]
 z_index = -1
@@ -78,6 +83,15 @@ one_shot = true
 
 [node name="piltangenterna" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_j5na4")
+
+[node name="subway" parent="." instance=ExtResource("10_irttw")]
+position = Vector2(561, 724)
+
+[node name="subway2" parent="." instance=ExtResource("10_irttw")]
+position = Vector2(1019, 724)
+
+[node name="subway3" parent="." instance=ExtResource("10_irttw")]
+position = Vector2(1427, 724)
 
 [connection signal="start" from="CanvasLayer2/MainMenu" to="." method="_on_start"]
 [connection signal="ending" from="gyatt" to="." method="_on_ending"]

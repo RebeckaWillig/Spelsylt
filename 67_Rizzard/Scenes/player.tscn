@@ -55,12 +55,3 @@ shape = SubResource("CircleShape2D_i3pqv")
 modulate = Color(0, 0, 0, 0.5764706)
 position = Vector2(0, 34)
 sprite_frames = SubResource("SpriteFrames_fkybt")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
-one_shot = true
-
-[node name="eating" type="AudioStreamPlayer" parent="."]
-bus = &"Eating"
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

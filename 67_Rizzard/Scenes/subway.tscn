@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4265s74u4ddd"]
+
+[ext_resource type="Texture2D" uid="uid://bpph2qsnf4dvi" path="res://Assets/Sprites/subway.png" id="1_elivc"]
+[ext_resource type="Script" uid="uid://bq5a7phddhu1v" path="res://Scripts/subway.gd" id="1_pjmfg"]
+[ext_resource type="AudioStream" uid="uid://b0w7yi3itjxr1" path="res://Assets/Audio/subway.wav" id="3_jykm6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjmfg"]
+atlas = ExtResource("1_elivc")
+region = Rect2(0, 0, 32, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jykm6"]
+atlas = ExtResource("1_elivc")
+region = Rect2(32, 0, 32, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flagm"]
+atlas = ExtResource("1_elivc")
+region = Rect2(64, 0, 32, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxf6p"]
+atlas = ExtResource("1_elivc")
+region = Rect2(96, 0, 32, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o7f6k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjmfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jykm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flagm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxf6p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgu3d"]
+size = Vector2(84, 126)
+
+[node name="subway" type="Area2D"]
+z_index = -10
+script = ExtResource("1_pjmfg")
+
+[node name="surfer" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o7f6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_bgu3d")
+
+[node name="subway" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jykm6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

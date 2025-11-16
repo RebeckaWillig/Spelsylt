@@ -1,7 +1,6 @@
 extends CharacterBody2D
 const SPEED = 120
 const START_POSITION = Vector2(280, 780)
-var timeout = false
 var animation_finished = true
 signal interaction
 
@@ -42,6 +41,3 @@ func get_movement() -> void:
 		velocity.y = local_direction.y * SPEED
 	else:
 		velocity.y = move_toward(velocity.y,0,SPEED)
-
-func _on_timer_timeout() -> void:
-	timeout = true
